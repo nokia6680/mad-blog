@@ -1,0 +1,7 @@
+mixin blogItem(name, link, image, category)
+    li(class="blog__list-item " +category)
+        a(href="" +link target="_self").blog__list-link
+            picture.blog__list-frame
+                source(srcset="static/images/content/" +image + '.webp' type="image/webp")
+                img(src="static/images/content/" +image + '.jpg' alt="" +name).blog__list-image
+            h3.blog__list-name=name

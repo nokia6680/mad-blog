@@ -1,0 +1,367 @@
+.blog {
+    width: 100%;
+
+    @include flex-setting(column, flex-start, center);
+
+    padding: 6.25rem 1.25rem 0 1.25rem;
+
+    &__title {
+        align-self: flex-start;
+        @include font-setting($primary-font, 1.75rem, 1.2858, 600, $text-black);
+        @include fluidFontSize(1.75rem, 2.625rem, 23.4375rem, 48rem, 1.75rem);
+        margin-bottom: 1.875rem;
+    }
+
+    // Фильтр
+
+    &__filter {
+        width: 100%;
+
+        @include flex-setting(row, flex-start, flex-start);
+        flex-wrap: wrap;
+
+        gap: 1.25rem 1.25rem;
+
+        margin-bottom: 3rem;
+
+        &-item {
+            display: inline-flex;
+            flex-direction: column;
+            place-items: center;
+
+            position: relative;
+            overflow: hidden;
+
+            &::after {
+                position: absolute;
+                content: '';
+
+                width: 100%;
+                height: 0.125rem;
+
+                background-color: $blue;
+
+                bottom: 0;
+                left: 0;
+                transform: scaleX(0);
+                transition: 0.3s ease-in;
+                transform-origin: left;
+            }
+
+            &:hover,
+            &:active {
+                &::after {
+                    transform: scaleX(1);
+                    transition: 0.3s ease-in;
+                    transform-origin: left;
+                }
+            }
+
+            &.active {
+                &::after {
+                    transform: scaleX(1);
+                    transition: 0.3s ease-in;
+                    transform-origin: left;
+                }
+            }
+
+            &.filter-downloads {
+                padding-left: 1.4375rem;
+
+                &::before {
+                    position: absolute;
+                    content: '';
+
+                    width: 14px;
+                    height: 18px;
+
+                    background-image: url("data:image/svg+xml,%3Csvg width='14' height='18' viewBox='0 0 14 18' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cline x1='-8.74228e-08' y1='17' x2='14' y2='17' stroke='black' stroke-width='2'/%3E%3Cline x1='7' y1='-4.37114e-08' x2='7' y2='10' stroke='black' stroke-width='2'/%3E%3Cpath d='M1 6L7 11L13 6' stroke='black' stroke-width='2'/%3E%3C/svg%3E");
+                    background-position: 50% 50%;
+                    background-repeat: no-repeat;
+                    background-size: contain;
+
+                    left: 0;
+                    top: 50%;
+                    transform: translateY(-50%);
+                }
+            }
+        }
+
+        &-btn {
+            width: 100%;
+            height: 100%;
+
+            @include font-setting($primary-font, 0.875rem, 1.071429, 600, $text-black);
+            @include fluidFontSize(0.875rem, 1.125rem, 23.4375rem, 48rem, 0.875rem);
+            text-decoration: none;
+
+            padding-top: 0.3125rem;
+            padding-bottom: 0.25rem;
+        }
+    }
+
+    // Список блога
+
+    &__list {
+        width: 100%;
+
+        @include flex-setting(column, flex-start, center);
+        margin-bottom: 6.25rem;
+
+        &-item {
+            @include flex-setting(column, center, center);
+
+            width: 100%;
+
+            margin-bottom: 1.875rem;
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+
+        &-link {
+            width: 100%;
+
+            @include flex-setting(column, flex-start, flex-start);
+
+            text-decoration: none;
+        }
+
+        &-frame {
+            padding-bottom: 75%;
+            position: relative;
+            width: 100%;
+            height: 0;
+            overflow: hidden;
+
+            margin-bottom: 0.9375rem;
+        }
+
+        &-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            object-fit: cover;
+            object-position: center;
+            width: 100%;
+            height: 100%;
+        }
+
+        &-name {
+            @include font-setting($primary-font, 1rem, 1.25, 600, $text-black);
+            @include fluidFontSize(1rem, 1.125rem, 23.4375rem, 48rem, 1rem);
+            text-align: left;
+        }
+    }
+
+    @supports (aspect-ratio: 4 / 3) {
+        .blog__list-frame {
+            height: 100%;
+            position: relative;
+            padding-bottom: 0;
+        }
+
+        .blog__list-image {
+            position: relative;
+            top: auto;
+            left: auto;
+            bottom: auto;
+            right: auto;
+
+            aspect-ratio: 4 / 3;
+        }
+    }
+
+    @supports not (aspect-ratio: 1 / 1) {
+        .blog__filter {
+            margin-bottom: 1.75rem;
+        }
+
+        .blog__filter-item {
+            margin-right: 1.25rem;
+            margin-bottom: 1.25rem;
+        }
+    }
+}
+
+@include min-screen(48rem) {
+    .blog {
+        padding-top: 4.375rem;
+
+        &__title {
+            line-height: 3.375rem;
+            margin-bottom: 3rem;
+        }
+
+        // Фильтр
+
+        &__filter {
+            gap: 1.25rem 2rem;
+            margin-bottom: 1.25rem;
+
+            &-btn {
+                line-height: 1.11111;
+            }
+        }
+
+        // Список блога
+
+        &__list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-column-gap: 1.25rem;
+            grid-row-gap: 1.25rem;
+
+            margin-bottom: 4.375rem;
+
+            &-item {
+                margin-bottom: 0;
+            }
+        }
+
+        @supports not (aspect-ratio: 1 / 1) {
+            .blog__filter {
+                margin-bottom: 0;
+            }
+
+            .blog__filter-item {
+                margin-right: 2rem;
+            }
+        }
+    }
+}
+
+@include min-screen(64rem) {
+    .blog {
+        padding-left: 2.5rem;
+        padding-right: 2.5rem;
+
+        // Фильтр
+
+        &__filter {
+            gap: 0.6875rem 2rem;
+            margin-bottom: 1.75rem;
+        }
+
+        // Список блога
+
+        &__list {
+            grid-template-columns: repeat(3, 1fr);
+
+            padding-top: 2.5rem;
+            margin-bottom: 2.5rem;
+
+            justify-content: start;
+            align-items: start;
+
+            &-frame {
+                margin-bottom: 1rem;
+            }
+
+            &-name {
+                line-height: 1.25;
+                @include fluidFontSize(1rem, 1.25rem, 64rem, 79.9375rem, 1rem);
+                max-width: 90%;
+                min-height: 2.5rem;
+            }
+        }
+
+        @supports not (aspect-ratio: 1 / 1) {
+            .blog__filter {
+                margin-bottom: 1.0625rem;
+            }
+
+            .blog__filter-item {
+                margin-bottom: 0.6875rem;
+            }
+        }
+    }
+}
+
+@include min-screen(80rem) {
+    .blog {
+        // Список блога
+
+        &__list {
+            grid-column-gap: 1.875rem;
+            grid-row-gap: 1.875rem;
+
+            padding-top: 2.1875rem;
+            margin-bottom: 6.25rem;
+
+            &-item {
+                padding-bottom: 0.3125rem;
+            }
+
+            &-frame {
+                margin-bottom: 1.25rem;
+            }
+
+            &-name {
+                line-height: 1.3;
+                @include fluidFontSize(1.25rem, 1.4375rem, 80rem, 89.9375rem, 1.25rem);
+                min-height: 3.25rem;
+            }
+        }
+    }
+}
+
+@include min-screen(90rem) {
+    .blog {
+        // Список блога
+
+        &__list {
+            padding-top: 2.75rem;
+            margin-bottom: 3.625rem;
+
+            &-item {
+                padding-bottom: 0.375rem;
+            }
+
+            &-frame {
+                margin-bottom: 1.375rem;
+            }
+
+            &-name {
+                line-height: 1.2609;
+                min-height: 3.625rem;
+            }
+        }
+    }
+}
+
+@include min-screen(120rem) {
+    .blog {
+        margin: 0 auto;
+        
+        padding-left: 0;
+        padding-right: 0;
+
+        max-width: 110rem;
+
+        // Список блога
+
+        &__list {
+            grid-template-columns: repeat(4, 1fr);
+            grid-row-gap: 2.5rem;
+            grid-column-gap: 2.5rem;
+            margin-bottom: 4.25rem;
+
+            &-item {
+                padding-bottom: 0.4375rem;
+            }
+
+            &-frame {
+                margin-bottom: 1.9375rem;
+            }
+
+            &-name {
+                line-height: 1.2609;
+                min-height: 3.625rem;
+            }
+        }
+    }
+}

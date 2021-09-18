@@ -1,0 +1,41 @@
+include ../helpers/mixins
+block variables
+
+doctype html
+html(lang="ru-RU")
+	head
+		meta(charset="utf-8")
+		title #{title}
+		<!--[if IE]>
+		meta(http-equiv='X-UA-Compatible', content="IE = edge")
+		<![endif]-->
+		meta(name="viewport" content="width=device-width,initial-scale=1")
+		meta(name="keywords" content="")
+		link(rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous")
+		link(rel="stylesheet" type='text/css' href="static/css/styles.css")
+	body.body
+		include ../modules/header/header
+		main.main
+			section.main__blog.blog
+				h1.blog__title Блог
+				
+				// Blog filter
+				ul.blog__filter
+					for i in blogFilter
+						li(class="blog__filter-item " +i.type)
+							a(href="" +i.link target="_self").blog__filter-btn=i.name
+				// Blog list
+				ul.blog__list
+					+blogItem('Дизайн POS материалов', 'blog-article.html', 'blog-image-1', 'with-file')
+					+blogItem('Дизайн POS материалов', 'blog-article.html', 'blog-image-2', '')
+					+blogItem('Дизайн POS материалов', 'blog-article.html', 'blog-image-3', '')
+					+blogItem('Дизайн POS материалов', 'blog-article.html', 'blog-image-3', 'with-file')
+					+blogItem('Тренды дизайна 2020 с примерами', 'blog-article.html', 'blog-image-2', '')
+					+blogItem('Дизайн POS материалов', 'blog-article.html', 'blog-image-1', '') 
+					+blogItem('Дизайн POS материалов', 'blog-article.html', 'blog-image-2', 'with-file')
+					+blogItem('Дизайн POS материалов', 'blog-article.html', 'blog-image-3', '')
+					+blogItem('Дизайн POS материалов', 'blog-article.html', 'blog-image-1', '') 
+		include ../modules/footer/footer
+		script(src="static/js/vendor/jquery-3.3.1.min.js")
+		script(src="static/js/main.js")
+		block script
