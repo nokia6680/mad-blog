@@ -5,3 +5,19 @@ mixin blogItem(name, link, image, category)
                 source(srcset="static/images/content/" +image + '.webp' type="image/webp")
                 img(src="static/images/content/" +image + '.jpg' alt="" +name).blog__list-image
             h3.blog__list-name=name
+
+mixin breadcrumb(levels)
+    .breadcrumbs(aria-label="breadcrumb")
+        ol.breadcrumbs__list(itemscope itemtype="http://schema.org/BreadcrumbList")
+            each level, index in levels
+                //- Index is zero based
+                - var count = index+1
+
+                li.breadcrumbs__item(itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem")
+                    a(href="#{level[1]}" aria-level!=count).breadcrumbs__link
+                        span(itemprop="name") #{level[0]}
+
+                        //- Don't show the divider on the last loop
+                    if count < levels.length
+                        i.breadcrumbs__symbol(aria-hidden="true").breadcrumbs__divider |
+                    meta(itemprop="position" content!=count)

@@ -25,6 +25,10 @@ html(lang="ru-RU")
 						source(media="(min-width: 768px)" srcset="static/images/content/blog-image-1-768.jpg")
 						source(type="image/webp" srcset="static/images/content/blog-image-1-mb.webp")
 						img(itemprop="image" src="static/images/content/blog-image-1-mb.jpg").a-blog__frame-image
+						
+					+breadcrumb([["Главная ", "/index.html"], ["Блог ", "/blog.html"], ["Самые страшные названия для статьи", "#"]])
+					
+					h1.a-blog__title Заголовок первого уровня для статьи
 					
 		include ../modules/footer/footer
 		script(src="static/js/vendor/jquery-3.3.1.min.js")
