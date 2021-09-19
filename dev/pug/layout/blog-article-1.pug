@@ -1,0 +1,32 @@
+include ../helpers/mixins
+block variables
+
+doctype html
+html(lang="ru-RU")
+	head
+		meta(charset="utf-8")
+		title #{title}
+		<!--[if IE]>
+		meta(http-equiv='X-UA-Compatible', content="IE = edge")
+		<![endif]-->
+		meta(name="viewport" content="width=device-width,initial-scale=1")
+		meta(name="keywords" content="")
+		link(rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous")
+		link(rel="stylesheet" type='text/css' href="static/css/styles.css")
+	body.body
+		include ../modules/header/header
+		main.main
+			article.main__a-blog.a-blog
+				header.a-blog__head
+					picture.a-blog__frame
+						source(type="image/webp" media="(min-width: 1440px)" srcset="static/images/content/blog-image-1-1440.webp")
+						source(media="(min-width: 1440px)" srcset="static/images/content/blog-image-1-1440.jpg")
+						source(type="image/webp" media="(min-width: 768px)" srcset="static/images/content/blog-image-1-768.webp")
+						source(media="(min-width: 768px)" srcset="static/images/content/blog-image-1-768.jpg")
+						source(type="image/webp" srcset="static/images/content/blog-image-1-mb.webp")
+						img(itemprop="image" src="static/images/content/blog-image-1-mb.jpg").a-blog__frame-image
+					
+		include ../modules/footer/footer
+		script(src="static/js/vendor/jquery-3.3.1.min.js")
+		script(src="static/js/main.js")
+		block script
