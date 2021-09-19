@@ -21,3 +21,25 @@ mixin breadcrumb(levels)
                     if count < levels.length
                         i.breadcrumbs__symbol(aria-hidden="true").breadcrumbs__divider |
                     meta(itemprop="position" content!=count)
+
+mixin similarItem(image, link, name, type)
+    li(class="similar__list-item " +type)
+        a(href="" +link target="_self").similar__list-link
+            picture.similar__list-frame
+                source(type="image/webp" media="(min-width: 1440px)" srcset="static/images/content/" +image +"-1440.webp")
+                source(media="(min-width: 1440px)" srcset="static/images/content/" +image +"-1440.jpg")
+                source(type="image/webp" srcset="static/images/content/" +image +"-mb.webp")
+                img(itemprop="image" src="static/images/content/" +image +"-mb.jpg").similar__list-image
+            h3.similar__list-name=name
+            
+
+mixin otherItem(image, link, name, about, type)
+    li(class="other__list-item " +type)
+        a(href="" +link target="_self").other__list-link
+            picture.similar__list-frame
+                source(type="image/webp" media="(min-width: 1440px)" srcset="static/images/content/" +image +"-1440.webp")
+                source(media="(min-width: 1440px)" srcset="static/images/content/" +image +"-1440.jpg")
+                source(type="image/webp" srcset="static/images/content/" +image +"-mb.webp")
+                img(itemprop="image" src="static/images/content/" +image +"-mb.jpg").other__list-image
+            h3.other__list-name=name
+            p.other__list-about=about

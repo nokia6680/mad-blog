@@ -9,3 +9,7 @@
   }
 }
 @include font-face('Mont', '../fonts/Mont/mont-semibold', 600, 'normal');
+@include font-face('PT Root UI', '../fonts/PT Root/PT-Root-UI_Light', 300, 'normal');
+@include font-face('PT Root UI', '../fonts/PT Root/PT-Root-UI_Regular', 400, 'normal');
+@include font-face('PT Root UI', '../fonts/PT Root/PT-Root-UI_Medium', 500, 'normal');
+@include font-face('PT Root UI', '../fonts/PT Root/PT-Root-UI_Bold', 700, 'normal');
