@@ -10,49 +10,85 @@ window.addEventListener('resize', () => {
   document.documentElement.style.setProperty('--vh', `${vh}px`);
 });
 
-var firstPage = document.querySelector('.header');
-var secondPage = document.querySelector('.content');
-var secondStep = document.querySelector('.js-activate');
-var submitBtn = document.querySelector('.js-submit');
-var thirdPage = document.querySelector('.event');
-var lastPage = document.querySelector('.footer');
+var joinOpener = document.querySelector('.js-test-form-join');
+var joinOverlay = document.querySelector('.popup-join');
+var joinCloser = document.querySelector('.join__closer');
 
-if (firstPage) {
-    setTimeout(function() {
-        return firstPage.classList.add('passed');
-    }, 800);
-}
+var orderOpener = document.querySelector('.order__start');
+var orderCloser = document.querySelector('.order__closer');
+var orderWrapper = document.querySelector('.order');
+var orderForm = document.querySelector('.order__form');
+var orderFormList = document.querySelector('.order__list');
+var orderFormSubmit = document.querySelector('.order__submit');
 
-if (secondStep) {
-    secondStep.addEventListener('click', function() {
-        firstPage.classList.add('passed-2');
-        secondPage.classList.add('passed');
+if (joinOpener) {
+    joinOpener.addEventListener('click', function() {
+        event.preventDefault();
+        joinOverlay.classList.add('active');
+    });
+};
+
+if (joinCloser) {
+    joinCloser.addEventListener('click', function() {
+        event.preventDefault();
+        joinOverlay.classList.remove('active');
+    });
+};
+
+if (orderOpener) {
+    orderOpener.addEventListener('click', function() {
+        event.preventDefault();
+        orderOpener.classList.add('pressed');
+
         setTimeout(function() {
-            return secondPage.classList.add('invisible');
-        }, 1000);
+            return orderOpener.classList.add('inactive');
+        }, 250);
 
         setTimeout(function() {
-            return thirdPage.classList.add('visible');
+            return orderWrapper.classList.add('prepare');;
+        }, 250);
+
+        setTimeout(function() {
+            return orderWrapper.classList.remove('inactive');;
+        }, 250);
+
+        setTimeout(function() {
+            return orderWrapper.classList.add('visible');;
+        }, 250);
+
+        setTimeout(function() {
+            return orderFormList.classList.add('visible');;
         }, 500);
     });
 };
 
-
-if (submitBtn) {
-    submitBtn.addEventListener('click', function() {
+if (orderCloser) {
+    orderCloser.addEventListener('click', function() {
         event.preventDefault();
-        thirdPage.classList.add('passed');
+        orderFormList.classList.remove('visible');
 
         setTimeout(function() {
-            return thirdPage.classList.add('invisible');
-        }, 500);
+            return orderWrapper.classList.remove('visible');
+        }, 250);
 
         setTimeout(function() {
-            return lastPage.classList.add('visible');
-        }, 500);
+            return orderWrapper.classList.remove('prepare');
+        }, 250);
 
         setTimeout(function() {
-            return lastPage.classList.add('active');
-        }, 1000);
+            return orderWrapper.classList.add('inactive');
+        }, 250);
+
+        setTimeout(function() {
+            return orderWrapper.classList.remove('prepare');;
+        }, 250);
+
+        setTimeout(function() {
+            return orderOpener.classList.remove('inactive');
+        }, 250);
+
+        setTimeout(function() {
+            return orderOpener.classList.remove('pressed');
+        }, 250);
     });
 };

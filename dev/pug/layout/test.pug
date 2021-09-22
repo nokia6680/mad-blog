@@ -1,0 +1,61 @@
+include ../helpers/mixins
+block variables
+
+doctype html
+html(lang="ru-RU")
+	head
+		meta(charset="utf-8")
+		title #{title}
+		<!--[if IE]>
+		meta(http-equiv='X-UA-Compatible', content="IE = edge")
+		<![endif]-->
+		meta(name="viewport" content="width=device-width,initial-scale=1")
+		meta(name="keywords" content="")
+		link(rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous")
+		link(rel="stylesheet" type='text/css' href="static/css/styles.css")
+	body.body
+		button(type="button").js-test-form-join Подробнее
+		
+		<!--Попап по кнопке "Подробнее"-->
+		.popup-join.join
+			.join__wrapper
+				button(type="button").join__closer
+				
+				form(method="post" action="#").join__form
+					ul.join__list
+						li.join__item
+							input(type="text" name="name" id="name" placeholder="Имя*").join__input
+							span.join__error Поле обязательно для заполнения
+						li.join__item
+							input(type="tel" name="tel" id="tel" placeholder="Номер телефона*").join__input
+							span.join__error Поле обязательно для заполнения
+						li.join__item
+							input(type="email" name="email" id="email" placeholder="E-mail*").join__input
+							span.join__error Поле обязательно для заполнения
+						li.join__item
+							input(type="text" name="city" id="city" placeholder="Город*").join__input
+							span.join__error Поле обязательно для заполнения
+					p.join__description Отправляя форму, я соглашаюсь на 
+						a(href="#" target="_self").join__description-rules обработку персональных данных
+					button(type="submit").join__submit Отправить
+		
+		<!--Блок вместо сквозного футера-->
+		section.order.inactive
+			.order__wrapper
+				p.order__about Заявка на партнёрство
+				button(type="button").order__closer
+					
+				form(method="post" action="#").order__form
+					ul.order__list
+						li.order__item
+							input(type="text" name="name-order" id="name-order" placeholder="Имя*").order__input
+							span.order__error Поле обязательно для заполнения
+						li.order__item
+							input(type="tel" name="tel-order" id="tel-order" placeholder="Номер телефона*").order__input
+							span.order__error Поле обязательно для заполнения
+					button(type="submit").order__submit Отправить
+					<!--Mobile only-->
+				button(type="button").order__start Оставить заявку
+		script(src="static/js/vendor/jquery-3.3.1.min.js")
+		script(src="static/js/main.js")
+		block script
