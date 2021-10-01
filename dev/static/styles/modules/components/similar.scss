@@ -1,0 +1,207 @@
+.similar {
+    width: 100%;
+
+    background-color: $black;
+
+    @include flex-setting(column, center, center);
+
+    padding: 3.125rem 0 2.5rem 0;
+    margin-bottom: 2.5rem;
+
+    &__wrapper {
+        width: 100%;
+    }
+
+    &__title {
+        @include font-setting($primary-font, 1.25rem, 1.3, 600, $white);
+        text-align: left;
+        margin-bottom: 1.25rem;
+        margin-left: 2.5rem;
+    }
+
+    &__list {
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        gap: 1.25rem;
+        padding-left: 2.5rem;
+        padding-right: 2.5rem;
+
+        -ms-overflow-style: none;
+        overflow: -moz-scrollbars-none;
+
+        &::-webkit-scrollbar { width: 0; }
+    }
+
+    &__list-item {
+        flex: none;
+        scroll-snap-align: center;
+
+        width: 100%;
+        max-width: 220px;
+
+        @include gapFallback(1.25rem);
+    }
+
+    &__list-link {
+        width: 100%;
+
+        @include flex-setting(column, flex-start, flex-start);
+
+        text-decoration: none;
+    }
+
+    &__list-frame {
+        padding-bottom: 75%;
+        position: relative;
+        width: 100%;
+        height: 0;
+        overflow: hidden;
+        margin-bottom: 1.25rem;
+    }
+
+    &__list-image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        object-fit: cover;
+        object-position: center;
+        width: 100%;
+        height: 100%;
+    }
+
+    &__list-name {
+        @include font-setting($primary-font, 0.875rem, 1.2858, 600, $white);
+        @include fluidFontSize(0.875rem, 1rem, 23.4375rem, 48rem, 0.875rem);
+    }
+
+    @supports (aspect-ratio: 4 / 3) {
+        .similar__list-frame {
+            height: 100%;
+            position: relative;
+            padding-bottom: 0;
+        }
+
+        .similar__list-image {
+            position: relative;
+            top: auto;
+            left: auto;
+            bottom: auto;
+            right: auto;
+
+            aspect-ratio: 4 / 3;
+        }
+    }
+}
+
+@include min-screen(48rem) {
+    .similar {
+        padding: 3.125rem 0 2.5rem 0;
+        margin-bottom: 1.875rem;
+
+        &__title {
+            margin-bottom: 1.875rem;
+        }
+
+        &__list-item {
+            max-width: 334px;
+        }
+
+        &__list-frame {
+            margin-bottom: 0.9375rem;
+        }
+
+        &__list-name {
+            font-size: 1rem;
+            line-height: 1.25rem;
+        }
+    }
+}
+
+@include min-screen(64rem) {
+    .similar {
+        &__list {
+            gap: 1.375rem;
+        }
+
+        &__list-item {
+            max-width: 31.77966101694915%;
+            @include gapFallback(1.375rem);
+        }
+
+        &__list-frame {
+            margin-bottom: 1rem;
+        }
+    }
+}
+
+@include min-screen(80rem) {
+    .similar {
+        padding-bottom: 4.5rem;
+
+        &__title {
+            @include fluidFontSize(1.25rem, 2rem, 80rem, 89.9375rem, 1.25rem);
+        }
+
+        &__list-frame {
+            margin-bottom: 1.25rem;
+        }
+
+        &__list-name {
+            @include fluidFontSize(1rem, 1.375rem, 80rem, 89.9375rem, 1rem);
+        }
+    }
+}
+
+@include min-screen(90rem) {
+    .similar {
+        &__list {
+            gap: 1.875rem;
+        }
+
+        &__title {
+            @include fluidFontSize(2rem, 2.25rem, 90rem, 119.9375rem, 2rem);
+        }
+
+        &__list-item {
+            @include gapFallback(1.875rem);
+        }
+
+        &__list-frame {
+            margin-bottom: 1.375rem;
+            overflow: hidden;
+        }
+        &__list-name {
+            line-height: 1.31818;
+            @include fluidFontSize(1.375rem, 1.5rem, 90rem, 119.9375rem, 1.375rem);
+        }
+    }
+}
+
+@include min-screen(120rem) {
+    .similar {
+        &__title {
+            margin-left: 5rem;
+        }
+        
+        &__list {
+            gap: 2.5625rem;
+            padding-left: 5rem;
+            padding-right: 5rem;
+        }
+
+        &__list-item {
+            @include gapFallback(2.5625rem);
+        }
+
+        &__list-frame {
+            margin-bottom: 1.875rem;
+        }
+
+        &__list-name {
+            line-height: 1.2916;
+        }
+    }
+}

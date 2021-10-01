@@ -8,6 +8,17 @@
   background-position: center;
 }
 
+@mixin gapFallback($gap) {
+    @supports not (aspect-ratio: 1 / 1) {
+        margin-right: $gap;
+
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+}
+
+
 $units: 1px !default;
 @mixin screen($res-first, $res-last: $res-first) {
   @if $res-first == $res-last {
@@ -25,14 +36,6 @@ $units: 1px !default;
   @media screen and (min-width: if(unitless($res), $res*$units, $res)) {
     @content;
   }
-}
-
-@mixin font-setting($family, $size, $line-height, $font-width, $color) {
-  font-family: $family;
-  font-size: $size;
-  line-height: $line-height;
-  font-weight: $font-width;
-  color: $color;
 }
 
 @mixin pseudo($pos: absolute, $content: '') {

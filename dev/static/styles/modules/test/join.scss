@@ -58,6 +58,30 @@
         width: 100%;
 
         @include flex-setting(column, flex-start, center);
+
+        &.submitted {
+            .join__list,
+            .join__description,
+            .join__submit {
+                display: none;
+            }
+
+            .join__reaction {
+                display: flex;
+            }
+        }
+    }
+
+    &__reaction {
+        width: 100%;
+        @include flex-setting(column, center, center);
+
+        display: none;
+
+        &-text {
+            @include font-setting($helve-font, 1.5625rem, 1.2, 400, $white);
+            text-align: center;
+        }
     }
 
     &__list {
@@ -83,7 +107,7 @@
         border-bottom: 1px solid #999;
         background-color: $black;
 
-        @include font-setting($helve-font, 1rem, 1, 400, $white);
+        @include font-setting($helve-font, 1.5625rem, 1, 400, $white);
 
         cursor: text;
         transition: 0.3s ease-in;
@@ -103,13 +127,13 @@
     }
 
     &__error {
-        @include font-setting($helve-font, 0.625rem, 1, 400, #e6007e);
+        @include font-setting($helve-font, 1.125rem, 1, 400, #e6007e);
         margin-left: 0.875rem;
         transition: 0.3s ease-in;
     }
 
     &__description {
-        @include font-setting($helve-font, 0.875rem, 1.125rem, 400, $white);
+        @include font-setting($helve-font, 1.125rem, 1.375rem, 400, $white);
         text-align: center;
         margin-bottom: 1.25rem;
         max-width: 240px;
@@ -129,7 +153,7 @@
 
     &__submit {
         @include flex-setting(column, center, center);
-        @include font-setting($helve-font, 1.25rem, 1.25rem, 400, $white);
+        @include font-setting($helve-font, 1.5rem, 1.5rem, 400, $white);
 
         background-color: #000;
         border: 1px solid $white;

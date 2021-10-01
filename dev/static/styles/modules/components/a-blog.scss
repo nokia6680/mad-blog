@@ -1,0 +1,437 @@
+.a-blog {
+    width: 100%;
+
+    @include flex-setting(column, flex-start, center);
+
+    &__head {
+        width: 100%;
+        @include flex-setting(column, flex-start, center);
+
+        margin-bottom: 2.5rem;
+
+        .breadcrumbs {
+            display: none;
+        }
+    }
+
+    &__poster {
+        padding-bottom: 75%;
+        position: relative;
+        width: 100%;
+        height: 0;
+        overflow: hidden;
+
+        margin-bottom: 0.9375rem;
+
+        &-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            object-fit: cover;
+            object-position: center;
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    &__intro {
+        width: 100%;
+        @include flex-setting(column, flex-start, flex-start);
+
+        padding: 0 1.25rem;
+        margin-bottom: 1.875rem;
+    }
+
+    &__name {
+        @include font-setting($primary-font, 1.75rem, 1.2858, 600, $black);
+        @include fluidFontSize(1.75rem, 2rem, 23.4375rem, 48rem, 1.75rem);
+
+        text-align: left;
+        margin-bottom: 3.125rem;
+    }
+
+    &__info {
+        width: 100%;
+
+        @include flex-setting(row, flex-start, center);
+        margin-bottom: 1.5rem;
+
+        &-item {
+            width: auto;
+            position: relative;
+
+            @include font-setting($root-font, 0.875rem, 1.0625rem, 400, $black);
+            padding-left: 2.875rem;
+
+            &::after {
+                position: absolute;
+                content: '';
+
+                width: 32px;
+                height: 32px;
+
+                left: 0;
+                top: 50%;
+                transform: translateY(-50%);
+
+                background-position: 50% 50%;
+                background-repeat: no-repeat;
+            }
+
+            &--views {
+                margin-right: 1.875rem;
+
+                &::after {
+                    background-image: url("data:image/svg+xml,%3Csvg width='21' height='14' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M10.5.182C5.955.182 2.073 3.009.5 7c1.573 3.99 5.455 6.818 10 6.818 4.546 0 8.427-2.827 10-6.818-1.573-3.991-5.454-6.818-10-6.818zm0 11.363A4.547 4.547 0 015.955 7 4.547 4.547 0 0110.5 2.454 4.547 4.547 0 0115.046 7a4.547 4.547 0 01-4.546 4.545zm0-7.272A2.724 2.724 0 007.773 7 2.724 2.724 0 0010.5 9.727 2.724 2.724 0 0013.227 7 2.724 2.724 0 0010.5 4.273z' fill='%23000'/%3E%3C/svg%3E");
+                    background-size: 21px 14px;
+                }
+            }
+
+            &--date {
+                &::after {
+                    background-image: url("data:image/svg+xml,%3Csvg width='19' height='20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M14.5 11h-5v5h5v-5zm-1-11v2h-8V0h-2v2h-1C1.39 2 .51 2.9.51 4L.5 18a2 2 0 002 2h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2h-1V0h-2zm3 18h-14V7h14v11z' fill='%23000'/%3E%3C/svg%3E");
+                    background-size: 19px 20px;
+                }
+            }
+        }
+    }
+
+    &__short {
+        @include font-setting($primary-font, 1.375rem, 1.2727, 600, $black);
+        @include fluidFontSize(1.375rem, 1.5rem, 23.4375rem, 48rem, 1.375rem);
+
+        text-align: left;
+    }
+
+    &__body {
+        width: 100%;
+
+        @include flex-setting(column, flex-start, center);
+
+        padding: 0 1.25rem;
+        margin-bottom: 2.625rem;
+
+        &-chapter {
+            width: 100%;
+
+            @include flex-setting(column, flex-start, flex-start);
+
+            padding-top: 1.25rem;
+            margin-bottom: 1.25rem;
+
+            &:last-of-type {
+                margin-bottom: 0;
+            }
+
+            .a-blog__text:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    // Simple text
+    &__text {
+        @include font-setting($root-font, 1.125rem, 1.2222, 400, $black);
+        text-align: left;
+
+        margin-bottom: 1.875rem;
+    }
+
+    // Simple list
+    &__list {
+        width: 100%;
+        @include flex-setting(column, flex-start, flex-start);
+
+        margin-bottom: 3.125rem;
+
+        &-item {
+            width: 100%;
+            margin-bottom: 0.5rem;
+
+            span {
+                @include font-setting($root-font, 1.125rem, 1.2222, 400, $black);
+            }
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    // Simple image with caption
+    &__gallery {
+        width: 100%;
+
+        @include flex-setting(column, flex-start, flex-start);
+        margin: 0;
+        margin-bottom: 1.875rem;
+
+        &-frame {
+            padding-bottom: 75%;
+            position: relative;
+            width: 100%;
+            height: 0;
+            overflow: hidden;
+
+            margin-bottom: 0.625rem;
+
+            &-image {
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                object-fit: cover;
+                object-position: center;
+                width: 100%;
+                height: 100%;
+            }
+        }
+
+        &-caption {
+            @include font-setting($root-font, 0.75rem, 0.875rem, 400, $light-gray);
+            text-align: left;
+        }
+    }
+
+    &__title {
+        font-family: $primary-font;
+        font-style: normal;
+        font-weight: 600;
+        color: $black;
+        text-align: left;
+    }
+
+    h2 {
+        @include fluidFontSize(1.5rem, 1.75rem, 23.4375rem, 48rem, 1.5rem);
+        line-height: 1.2916;
+
+        margin-bottom: 1.875rem;
+    }
+
+    h3 {
+        @include fluidFontSize(1.25rem, 1.5rem, 23.4375rem, 48rem, 1.25rem);
+        line-height: 1.2778;
+        margin-bottom: 0.625rem;
+    }
+
+    h4 {
+        @include fluidFontSize(1.125rem, 1.25rem, 23.4375rem, 48rem, 1.125rem);
+        line-height: 1.2858;
+        margin-bottom: 0.625rem;
+    }
+
+    // Modern browsers fallback
+    @supports (aspect-ratio: 4 / 3) {
+        .a-blog__frame,
+        .a-blog__gallery-frame {
+            height: 100%;
+            position: relative;
+            padding-bottom: 0;
+        }
+
+        .a-blog__frame-image,
+        .a-blog__gallery-image  {
+            position: relative;
+            top: auto;
+            left: auto;
+            bottom: auto;
+            right: auto;
+            object-fit: cover;
+            aspect-ratio: 4 / 3;
+        }
+    }
+}
+
+@include min-screen(48rem) {
+    .a-blog {
+        &__head {
+            margin-bottom: 2.5rem;
+
+            .breadcrumbs {
+                display: flex;
+            }
+        }
+
+        &__poster {
+            padding-bottom: 56.25%;
+            margin-bottom: 2.5rem;
+        }
+
+        &__name {
+            @include fluidFontSize(2rem, 2.625rem, 48rem, 63.9375rem, 2rem);
+            margin-bottom: 4.375rem;
+        }
+
+        &__info {
+            margin-bottom: 3.125rem;
+        }
+
+        &__short {
+            line-height: 1.2916;
+        }
+
+        &__body {
+            margin-bottom: 6.25rem;
+
+            &-chapter {
+                padding-top: 2.5rem;
+                margin-bottom: 1.875rem;
+
+                .a-blog__text:last-child {
+                    margin-bottom: 0;
+                }
+            }
+        }
+
+        // Simple list
+        &__list {
+            margin-bottom: 5rem;
+
+            &-item {
+                margin-bottom: 0.8125rem;
+
+                &:last-child {
+                    margin-bottom: 0;
+                }
+            }
+        }
+
+        &__gallery {
+            margin-bottom: 1.875rem;
+
+            &-frame {
+                margin-bottom: 0.8125rem;
+            }
+        }
+
+        h2 {
+            @include fluidFontSize(1.75rem, 2.25rem, 48rem, 63.9375rem, 1.75rem);
+            line-height: 1.2777;
+        }
+
+        h3 {
+            @include fluidFontSize(1.5rem, 1.75rem, 48rem, 63.9375rem, 1.5rem);
+            line-height: 1.2857;
+            margin-bottom: 1.875rem;
+        }
+
+        h4 {
+            @include fluidFontSize(1.25rem, 1.375rem, 48rem, 63.9375rem, 1.25rem);
+            line-height: 1.3;
+            margin-bottom: 1.875rem;
+        }
+
+        // Modern browsers fallback
+        @supports (aspect-ratio: 16 / 9) {
+            .a-blog__frame{
+                padding-bottom: 0;
+            }
+
+            .a-blog__frame-image {
+                aspect-ratio: 16 / 9;
+            }
+        }
+    }
+}
+
+@include min-screen(64rem) {
+    .a-blog {
+        align-items: flex-start;
+
+        &__head {
+            margin-bottom: 3.75rem;
+        }
+
+        &__intro {
+            padding: 0;
+            max-width: 790px;
+            margin-left: 2.5rem;
+        }
+
+        &__info {
+            margin-bottom: 1.875rem;
+        }
+
+        &__body {
+            margin-bottom: 7.5rem;
+            max-width: 790px;
+            padding-left: 0;
+            padding-right: 0;
+            margin-left: 2.5rem;
+
+            &-chapter {
+                margin-bottom: 2.5rem;
+
+                .a-blog__text:last-child {
+                    margin-bottom: 0;
+                }
+            }
+        }
+
+        // Simple list
+        &__list {
+            margin-bottom: 3.125rem;
+        }
+
+        &__gallery {
+            &-frame {
+                margin-bottom: 0.9375rem;
+            }
+        }
+    }
+}
+
+@include min-screen(80rem) {
+    .a-blog {
+        align-items: center;
+
+        &__intro {
+            margin-left: 0;
+            max-width: 790px;
+        }
+
+        &__info {
+            margin-bottom: 3.125rem;
+        }
+
+        &__short {
+            @include fluidFontSize(1.5rem, 1.75rem, 80rem, 89.9375rem, 1.5rem);
+        }
+
+        &__text {
+            @include fluidFontSize(1.125rem, 1.25rem, 80rem, 89.9375rem, 1.125rem);
+        }
+
+        &__body {
+            margin-bottom: 6.25rem;
+            margin-left: 0;
+        }
+    }
+}
+
+@include min-screen(90rem) {
+    .a-blog {
+        &__intro {
+            max-width: 896px;
+        }
+
+        &__info {
+            margin-bottom: 3.125rem;
+        }
+
+        &__short {
+            line-height: 1.2858;
+        }
+
+        &__text {
+            line-height: 1.2;
+        }
+
+        &__body {
+            max-width: 896px;
+        }
+    }
+}

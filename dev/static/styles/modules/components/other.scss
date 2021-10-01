@@ -1,0 +1,261 @@
+.other {
+    width: 100%;
+
+    @include flex-setting(column, center, center);
+
+    padding: 1.25rem 1.25rem 6.25rem 1.25rem;
+
+    &__wrapper {
+        width: 100%;
+        @include flex-setting(column, flex-start, flex-start);
+    }
+
+    &__title {
+        @include font-setting($primary-font, 1.25rem, 1.3, 600, $black);
+        @include fluidFontSize(1.5rem, 2rem, 23.4375rem, 48rem, 1.5rem);
+        text-align: left;
+        margin-bottom: 1.25rem;
+    }
+
+    &__list {
+        width: 100%;
+
+        @include flex-setting(column, flex-start, center);
+    }
+
+    &__list-item {
+        width: 100%;
+
+        @include flex-setting(column, center, center);
+
+        margin-bottom: 3.75rem;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    &__list-link {
+        width: 100%;
+
+        @include flex-setting(column, flex-start, flex-start);
+
+        text-decoration: none;
+    }
+
+    &__list-frame {
+        padding-bottom: 100%;
+        position: relative;
+        width: 100%;
+        height: 0;
+        overflow: hidden;
+
+        margin-bottom: 1.25rem;
+    }
+
+    &__list-image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        object-fit: cover;
+        object-position: center;
+        width: 100%;
+        height: 100%;
+    }
+
+    @supports (aspect-ratio: 1 / 1) {
+        .other__list-frame {
+            height: 100%;
+            position: relative;
+            padding-bottom: 0;
+        }
+
+        .other__list-image {
+            position: relative;
+            top: auto;
+            left: auto;
+            bottom: auto;
+            right: auto;
+
+            aspect-ratio: 1 / 1;
+        }
+    }
+
+    &__list-name {
+        @include font-setting($primary-font, 1.5rem, 1.2916, 600, $black);
+        margin-bottom: 1.25rem;
+        text-align: left;
+    }
+
+    &__list-about {
+        @include font-setting($root-font, 1.125rem, 1.2777, 400, $black);
+        text-align: left;
+    }
+}
+
+@include min-screen(48rem) {
+    .other {
+        padding-top: 1.875rem;
+        padding-bottom: 4.375rem;
+
+        padding-left: 0;
+        padding-right: 0;
+
+        &__title {
+            line-height: 1.28125;
+            margin-bottom: 2.5rem;
+            margin-left: 1.25rem;
+        }
+
+        &__list {
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: flex-start;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            gap: 1.25rem;
+
+            padding-left: 1.25rem;
+            padding-right: 1.25rem;
+
+            -ms-overflow-style: none;
+            overflow: -moz-scrollbars-none;
+
+            &::-webkit-scrollbar { width: 0; }
+        }
+
+        &__list-item {
+            flex: none;
+            scroll-snap-align: center;
+
+            margin-bottom: 0;
+            max-width: 46.09375%;
+
+            @include gapFallback(1.25rem);
+        }
+
+        &__list-frame {
+            padding-bottom: 133.33333333333334%;
+        }
+
+        @supports (aspect-ratio: 3 / 4) {
+            .other__list-frame {
+                padding-bottom: 0;
+            }
+
+            .other__list-image {
+                aspect-ratio: 3 / 4;
+            }
+        }
+
+        &__list-name {
+            @include fluidFontSize(1.125rem, 1.25rem, 48rem, 63.9375rem, 1.125rem);
+            line-height: 1.2777;
+        }
+
+        &__list-about {
+            font-size: 1rem;
+            line-height: 1.1875;
+        }
+    }
+}
+
+@include min-screen(64rem) {
+    .other {
+        &__title {
+            margin-left: 2.5rem;
+        }
+
+        &__list {
+            gap: 1.375rem;
+            padding-left: 2.5rem;
+            padding-right: 2.5rem;
+        }
+
+        &__list-item {
+            max-width: 31.77966101694915%;
+            @include gapFallback(1.375rem);
+        }
+
+        &__list-name {
+            margin-bottom: 0.875rem;
+        }
+    }
+}
+
+@include min-screen(80rem) {
+    .other {
+        margin-bottom: 6.25rem;
+
+        &__list-name {
+            @include fluidFontSize(1.25rem, 2rem,  80rem, 89.9375rem, 1.25rem);
+        }
+
+        &__list-about {
+            @include fluidFontSize(1rem, 1.25rem,  80rem, 89.9375rem, 1rem);
+        }
+    }
+}
+
+@include min-screen(90rem) {
+    .other {
+        &__title {
+            @include fluidFontSize(2rem, 2.25rem, 90rem, 119.9375rem, 2rem);;
+        }
+
+        &__list {
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+        }
+
+        &__list-item {
+            max-width: 100%;
+
+            margin-bottom: 8.125rem;
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+
+        &__list-frame {
+            padding-bottom: 50%;
+        }
+
+        &__list-name {
+            line-height: 1.25rem;
+        }
+
+        &__list-about {
+            line-height: 1.2;
+        }
+
+        @supports (aspect-ratio: 2 / 1) {
+            .other__list-frame {
+                padding-bottom: 0;
+            }
+
+            .other__list-image {
+                aspect-ratio: 2 / 1;
+            }
+        }
+    }
+}
+
+@include min-screen(120rem) {
+    .other {
+        padding-left: 5rem;
+        padding-right: 5rem;
+
+        &__title {
+            margin-left: 0;
+        }
+
+        &__list {
+            padding: 0;
+        }
+    }
+}

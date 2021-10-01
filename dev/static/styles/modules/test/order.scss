@@ -68,6 +68,26 @@
 
         padding-top: 0;
         transition: 0.25s ease-in;
+
+        &.submitted {
+            .order__form {
+                display: none;
+            }
+
+            .order__start {
+                display: none;
+            }
+
+            .order__reaction {
+                display: block;
+            }
+        }
+    }
+
+    &__reaction {
+        @include font-setting($helve-font, 1.55rem, 1.2, 400, $white);
+        text-align: center;
+        display: none;
     }
 
     &__about {
@@ -136,7 +156,7 @@
         border-bottom: 1px solid #999;
         background-color: $black;
 
-        @include font-setting($helve-font, 1rem, 1, 400, $white);
+        @include font-setting($helve-font, 1.5625rem, 1, 400, $white);
 
         cursor: text;
         transition: 0.3s ease-in;
@@ -156,7 +176,7 @@
     }
 
     &__error {
-        @include font-setting($helve-font, 0.625rem, 1, 400, #e6007e);
+        @include font-setting($helve-font, 1.125rem, 1, 400, #e6007e);
         margin-left: 0.875rem;
         transition: 0.3s ease-in;
     }
@@ -164,7 +184,7 @@
     &__submit {
         width: 100%;
         @include flex-setting(column, center, center);
-        @include font-setting($helve-font, 1rem, 1rem, 400, $white);
+        @include font-setting($helve-font, 1.5rem, 1.5rem, 400, $white);
         border: none;
         padding: 0.9375rem 0;
         background-color: #e6007e;
@@ -184,7 +204,7 @@
     &__start {
         width: 100%;
         @include flex-setting(column, center, center);
-        @include font-setting($helve-font, 1rem, 1rem, 400, $white);
+        @include font-setting($helve-font, 1.5rem, 1.5rem, 400, $white);
         border: none;
         padding: 0.9375rem 0;
         background-color: #e6007e;
@@ -242,7 +262,7 @@
 
         &__about {
             display: block;
-            @include font-setting($helve-font, 1.375rem, 1, 400, $white);
+            @include font-setting($helve-font, 1.75rem, 1, 400, $white);
 
             white-space: nowrap;
         }

@@ -22,6 +22,8 @@ html(lang="ru-RU")
 				button(type="button").join__closer
 				
 				form(method="post" action="#").join__form
+					.join__reaction
+						p.join__reaction-text Спасибо, ваша заявка успешно отправлена!
 					ul.join__list
 						li.join__item
 							input(type="text" name="name" id="name" placeholder="Имя*").join__input
@@ -43,6 +45,8 @@ html(lang="ru-RU")
 		section.order.inactive
 			.order__wrapper
 				p.order__about Заявка на партнёрство
+				p.order__reaction Заявка успешно отправлена!
+				
 				button(type="button").order__closer
 					
 				form(method="post" action="#").order__form

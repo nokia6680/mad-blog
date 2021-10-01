@@ -19,11 +19,11 @@ mixin breadcrumb(levels)
 
                         //- Don't show the divider on the last loop
                     if count < levels.length
-                        i.breadcrumbs__symbol(aria-hidden="true").breadcrumbs__divider |
+                        i.breadcrumbs__symbol(aria-hidden="true").breadcrumbs__divider —
                     meta(itemprop="position" content!=count)
 
 mixin similarItem(image, link, name, type)
-    li(class="similar__list-item " +type)
+    div(class="similar__list-item " +type)
         a(href="" +link target="_self").similar__list-link
             picture.similar__list-frame
                 source(type="image/webp" media="(min-width: 1440px)" srcset="static/images/content/" +image +"-1440.webp")
@@ -36,7 +36,7 @@ mixin similarItem(image, link, name, type)
 mixin otherItem(image, link, name, about, type)
     li(class="other__list-item " +type)
         a(href="" +link target="_self").other__list-link
-            picture.similar__list-frame
+            picture.other__list-frame
                 source(type="image/webp" media="(min-width: 1440px)" srcset="static/images/content/" +image +"-1440.webp")
                 source(media="(min-width: 1440px)" srcset="static/images/content/" +image +"-1440.jpg")
                 source(type="image/webp" srcset="static/images/content/" +image +"-mb.webp")

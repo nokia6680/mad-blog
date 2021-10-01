@@ -8,7 +8,9 @@
     font-style: $style;
   }
 }
+@include font-face('Mont', '../fonts/Mont/Mont-Regular', 400, 'normal');
 @include font-face('Mont', '../fonts/Mont/mont-semibold', 600, 'normal');
+@include font-face('Mont', '../fonts/Mont/Mont-Bold', 700, 'normal');
 @include font-face('PT Root UI', '../fonts/PT Root/PT-Root-UI_Light', 300, 'normal');
 @include font-face('PT Root UI', '../fonts/PT Root/PT-Root-UI_Regular', 400, 'normal');
 @include font-face('PT Root UI', '../fonts/PT Root/PT-Root-UI_Medium', 500, 'normal');
