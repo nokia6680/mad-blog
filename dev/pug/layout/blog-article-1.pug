@@ -35,10 +35,32 @@ html(lang="ru-RU")
 						span.a-blog__info-item.a-blog__info-item--views 151805
 						time(datetime="28-07-2021").a-blog__info-item.a-blog__info-item--date 28 июля 2021
 					p.a-blog__short Такая продукция обычно изготавливается из пластика, картона, металла или дерева и находится в местах продажи того или иного товара, хотя зачастую используется где-то неподалёку, например, в качестве навигации в зале или у входа в магазин. Основная задача pos-материалов — стимулирование сбыта определенного товара или целой категории.
+					p.a-blog__text Такая продукция обычно изготавливается из пластика, картона, металла или дерева и находится в местах продажи того или иного товара, хотя зачастую используется где-то неподалёку, например, в качестве навигации в зале или у входа в магазин. Основная задача pos-материалов — стимулирование сбыта определенного товара или целой категории.
+				
+					ul.a-blog__nav
+						li.a-blog__nav-item
+							a(href="#chapter-1" target="_self") 1. Наружное оформление
+						li.a-blog__nav-item
+							a(href="#chapter-2" target="_self") 2. Входная группа и навигация.
+						li.a-blog__nav-item
+							a(href="#chapter-3" target="_self")  3. Полка с товаром.
+						li.a-blog__nav-item
+							a(href="#chapter-4" target="_self")  4. Отдельное место.
+						li.a-blog__nav-item
+							a(href="#chapter-5" target="_self")  5. Shop-in-shop.
+						li.a-blog__nav-item
+							a(href="#chapter-6" target="_self")  6. Зона у кассы.
 				.a-blog__body
-					section.a-blog__body-chapter
-						p.a-blog__text Такая продукция обычно изготавливается из пластика, картона, металла или дерева и находится в местах продажи того или иного товара, хотя зачастую используется где-то неподалёку, например, в качестве навигации в зале или у входа в магазин. Основная задача pos-материалов — стимулирование сбыта определенного товара или целой категории.
-						
+					section.a-blog__body-chapter#chapter-1
+						figure.a-blog__gallery
+							picture.a-blog__gallery-frame
+								source(type="image/webp" media="(min-width: 1024px)" srcset="static/images/content/blog-art-1-1440.webp")
+								source(media="(min-width: 1024px)" srcset="static/images/content/blog-art-1-1440.jpg")
+								source(type="image/webp" media="(min-width: 768px)" srcset="static/images/content/blog-art-1-768.webp")
+								source(media="(min-width: 768px)" srcset="static/images/content/blog-art-1-768.jpg")
+								source(type="image/webp" srcset="static/images/content/blog-art-1-mb.webp")
+								img(itemprop="image" src="static/images/content/blog-art-1-mb.jpg").a-blog__gallery-image
+							figcaption.a-blog__gallery-caption Последние несколько лет довольно популярны меловые штендеры
 						ul.a-blog__list
 							li.a-blog__list-item
 								span 1. Наружное оформление.
@@ -52,20 +74,10 @@ html(lang="ru-RU")
 								span 5. Shop-in-shop.
 							li.a-blog__list-item
 								span 6. Зона у кассы.
-						figure.a-blog__gallery
-							picture.a-blog__gallery-frame
-								source(type="image/webp" media="(min-width: 1024px)" srcset="static/images/content/blog-art-1-1440.webp")
-								source(media="(min-width: 1024px)" srcset="static/images/content/blog-art-1-1440.jpg")
-								source(type="image/webp" media="(min-width: 768px)" srcset="static/images/content/blog-art-1-768.webp")
-								source(media="(min-width: 768px)" srcset="static/images/content/blog-art-1-768.jpg")
-								source(type="image/webp" srcset="static/images/content/blog-art-1-mb.webp")
-								img(itemprop="image" src="static/images/content/blog-art-1-mb.jpg").a-blog__gallery-image
-							figcaption.a-blog__gallery-caption Последние несколько лет довольно популярны меловые штендеры
-						
 						p.a-blog__text Последние несколько лет довольно популярны меловые штендеры, информацию на которых размещают с помощью цветных мелков. Такой подход позволяет быстро менять информацию и креативно рассказывать о новых акциях. Конечно, у таких штендеров есть логичный минус — если погода испортится и пойдет дождь, то рекламный посыл исчезает, что не позволяет их использовать в течение всего года на улице. Такие рекламные материалы часто можно встретить возле летних кафе и ресторанов. 
 						p.a-blog__text Иногда, проходя мимо какого-нибудь магазина, можно встретить плоскую ростовую фигуру, которая сразу бросается в глаза и как бы приглашает заглянуть внутрь. Такие фигуры изготавливают из картона или пластика и чаще всего размещают внутри торговых центров и реже на улице. При разработке дизайна для таких фигур важно выбрать подходящее изображение. Во-первых, лучше использовать образ потенциального покупателя, а во-вторых, само изображение должно быть высокого качества. Если на таком POS-материале подразумевается текст, то он должен быть кратким, но ёмким. Когда вам нужно привлечь в свой магазин детей и их родителей, то в качестве основного изображения используйте героев популярных мультфильмов или даже сказок.
 					
-					section.a-blog__body-chapter
+					section.a-blog__body-chapter#chapter-2
 						h2.a-blog__title Заголовок второго уровня для статьи
 						p.a-blog__text Последние несколько лет довольно популярны меловые штендеры, информацию на которых размещают с помощью цветных мелков. Такой подход позволяет быстро менять информацию и креативно рассказывать о новых акциях. Конечно, у таких штендеров есть логичный минус — если погода испортится и пойдет дождь, то рекламный посыл исчезает, что не позволяет их использовать в течение всего года на улице. Такие рекламные материалы часто можно встретить возле летних кафе и ресторанов. 
 						
