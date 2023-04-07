@@ -14,52 +14,16 @@ html(lang="ru-RU")
 		link(rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous")
 		link(rel="stylesheet" type='text/css' href="static/css/styles.css")
 	body.body
-		button(type="button").js-test-form-join Подробнее
-		
-		<!--Попап по кнопке "Подробнее"-->
-		.popup-join.join
-			.join__wrapper
-				button(type="button").join__closer
-				
-				form(method="post" action="#").join__form
-					.join__reaction
-						p.join__reaction-text Спасибо, ваша заявка успешно отправлена!
-					ul.join__list
-						li.join__item
-							input(type="text" name="name" id="name" placeholder="Имя*").join__input
-							span.join__error Поле обязательно для заполнения
-						li.join__item
-							input(type="tel" name="tel" id="tel" placeholder="Номер телефона*").join__input
-							span.join__error Поле обязательно для заполнения
-						li.join__item
-							input(type="email" name="email" id="email" placeholder="E-mail*").join__input
-							span.join__error Поле обязательно для заполнения
-						li.join__item
-							input(type="text" name="city" id="city" placeholder="Город*").join__input
-							span.join__error Поле обязательно для заполнения
-					p.join__description Отправляя форму, я соглашаюсь на 
-						a(href="#" target="_self").join__description-rules обработку персональных данных
-					button(type="submit").join__submit Отправить
-		
-		<!--Блок вместо сквозного футера-->
-		section.order.inactive
-			.order__wrapper
-				p.order__about Заявка на партнёрство
-				p.order__reaction Заявка успешно отправлена!
-				
-				button(type="button").order__closer
-					
-				form(method="post" action="#").order__form
-					ul.order__list
-						li.order__item
-							input(type="text" name="name-order" id="name-order" placeholder="Имя*").order__input
-							span.order__error Поле обязательно для заполнения
-						li.order__item
-							input(type="tel" name="tel-order" id="tel-order" placeholder="Номер телефона*").order__input
-							span.order__error Поле обязательно для заполнения
-					button(type="submit").order__submit Отправить
-					<!--Mobile only-->
-				button(type="button").order__start Оставить заявку
+		main.main
+			form.form
+				h3.form__title Subscribe form
+				p.form__description just to be always on time
+				ul.form__list
+					li.form__item
+						label(for="number").form__label Enter ID
+						input(type="number" name="number" id="number").form__input
+						button(type="submit").form__submit Send
 		script(src="static/js/vendor/jquery-3.3.1.min.js")
 		script(src="static/js/main.js")
+		script(src="static/js/test.js")
 		block script

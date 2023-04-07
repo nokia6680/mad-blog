@@ -103,3 +103,8 @@ $units: 1px !default;
   top: 0.125rem;
   left: 0;
 }
+
+@function toRem($value) {
+    $remValue: ($value / 16) + rem;
+    @return $remValue;
+}

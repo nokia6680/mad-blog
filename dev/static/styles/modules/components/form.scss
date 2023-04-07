@@ -1,0 +1,126 @@
+.form {
+    width: toRem(500);
+    @include flex-setting(column, flex-start, center);
+
+    margin: auto;
+
+    padding: toRem(40) toRem(40);
+    border: 4px solid rgba(0, 0, 0, 0.3);
+    border-radius: toRem(40);
+    background-color: silver;
+    box-shadow: 0 0 10px 0 rgba(255, 255, 255, 0.25), 0 0 6px 1px rgba(0, 0, 0, 0.7) inset;
+
+    &.hiding {
+        .form__label,
+        .form__input {
+            animation: fadeOutLeft 0.3s $cubic forwards 0s;
+        }
+
+        .form__submit {
+            animation: fadeOutRight 0.3s $cubic forwards 0s;
+        }
+
+        .form__description {
+            margin-bottom: 0;
+            transition: 0.3s $cubic;
+        }
+    }
+
+    &.hidden {
+        .form__description {
+            margin-bottom: 0;
+        }
+
+        .form__item {
+            display: none;
+        }
+    }
+
+    &.charging {
+        .form__description {
+            margin-bottom: toRem(40);
+            transition: 0.3s $cubic;
+        }
+
+        .form__item {
+            display: grid;
+        }
+    }
+
+    &__title {
+        @include font-setting($zefani-font, toRem(32), toRem(36), 400, $black);
+        margin-bottom: toRem(20);
+        text-shadow: 0px 1px 1px rgba(255,255,2555,0.75), 0px -1px 1px rgba(0,0,0,.75);
+    }
+
+    &__description {
+        @include font-setting($zefani-font-sans, toRem(20), toRem(24), 400, rgba(0, 0, 0, 0.8));
+        margin-bottom: toRem(40);
+        text-shadow: 0px 1px 1px rgba(255,255,2555,0.75), 0px -1px 1px rgba(0,0,0,.75);
+    }
+
+    &__list {
+        width: 100%;
+        @include flex-setting(column, flex-start, center);
+    }
+
+    &__item {
+        display: grid;
+        grid-template-areas:
+            'title title'
+            'input submit'
+        ;
+
+        grid-template-columns: 70% 1fr;
+        grid-column-gap: toRem(20);
+        grid-row-gap: toRem(20);
+    }
+
+    &__label {
+        opacity: 0;
+        grid-area: title;
+        @include font-setting($zefani-font, toRem(20), toRem(24), 400, $black);
+        white-space: nowrap;
+
+        animation: fadeInLeft 0.3s $cubic forwards 0s;
+    }
+
+    &__input {
+        opacity: 0;
+        grid-area: input;
+        width: 100%;
+        background-color: transparent;
+        border: none;
+        @include font-setting($zefani-font, toRem(22), toRem(28), 400, $bordo);
+        padding: toRem(10) toRem(10);
+        text-shadow: 0px 1px 1px rgba(255,255,2555,0.75), 0px -1px 1px rgba(0,0,0,.75);
+        border-bottom: 2px solid $black;
+        animation: fadeInLeft 0.3s $cubic forwards 0s;
+
+        &::-webkit-outer-spin-button,
+        &::-webkit-inner-spin-button {
+          -webkit-appearance: none;
+          margin: 0;
+        }
+    }
+
+    &__submit {
+        opacity: 0;
+        cursor: pointer;
+        grid-area: submit;
+        background:
+    		linear-gradient(27deg, #151515 5px, transparent 5px) 0 5px,
+    		linear-gradient(207deg, #151515 5px, transparent 5px) 10px 0px,
+    		linear-gradient(27deg, #222 5px, transparent 5px) 0px 10px,
+    		linear-gradient(207deg, #222 5px, transparent 5px) 10px 5px,
+    		linear-gradient(90deg, #1b1b1b 10px, transparent 10px),
+    		linear-gradient(#1d1d1d 25%, #1a1a1a 25%, #1a1a1a 50%, transparent 50%, transparent 75%, #242424 75%, #242424);
+    	background-color: #131313;
+    	background-size: 20px 20px;
+        border: none;
+        border-radius: toRem(10);
+        text-shadow: 0px 1px 1px rgba(255,255,2555,0.75), 0px -1px 1px rgba(0,0,0,.75);
+        animation: fadeInRight 0.3s $cubic forwards 0s;
+        @include font-setting($zefani-font, toRem(20), toRem(20), 400, $white);
+    }
+}
